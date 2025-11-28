@@ -1,0 +1,431 @@
+
+/* Root layout */
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+.app-header {
+  border-bottom: 1px solid #1e293b;
+  padding: 12px 16px;
+  background: rgba(2, 6, 23, 0.9);
+  backdrop-filter: blur(12px);
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.header-text p {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Main grid */
+
+.main-grid {
+  flex: 1;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cards */
+
+.card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e0f2fe;
+}
+
+.card-subtitle {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.card-subtitle.small {
+  font-size: 0.7rem;
+}
+
+.card-body {
+  padding: 10px 14px 12px;
+}
+
+/* FIXED HEIGHTS LEFT PANE */
+
+.schedule-card {
+  height: 110px;
+}
+
+.preview-card {
+  height: 420px;
+}
+
+.preview-scroll {
+  height: 150px;
+  overflow: auto;
+}
+
+.logs-card {
+  height: 420px;
+}
+
+.logs-body {
+  height: 420px;
+}
+
+/* FIXED HEIGHTS RIGHT PANE */
+
+.right-top-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .right-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.command-card,
+.telemetry-card {
+  height: 430px;
+}
+
+.command-body,
+.telemetry-body {
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.select-compact {
+  margin-bottom: 8px;
+}
+
+.command-body .scroll-box.small,
+.telemetry-body .scroll-box.small {
+  flex: 1;
+  max-height: none;
+  overflow: auto;
+}
+
+.execution-card {
+  height: 520px;         /* bigger, dominates right side */
+}
+
+.execution-scroll {
+  height: 460px;
+  overflow: auto;
+}
+
+/* Buttons */
+
+.primary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #020617;
+  background: #38bdf8;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.primary-button:hover {
+  background: #0ea5e9;
+  transform: translateY(-1px);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+.secondary-link-button {
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.secondary-link-button:hover {
+  color: #38bdf8;
+}
+
+/* Select */
+
+.select {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e2e8f0;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  padding: 6px 9px;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.3);
+}
+
+/* Tables */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.table thead {
+  position: sticky;
+  top: 0;
+  background: #020617;
+  color: #64748b;
+  text-align: left;
+  z-index: 1;
+}
+
+.table th,
+.table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.table th {
+  font-weight: 500;
+}
+
+.table-row:hover {
+  background: rgba(30, 64, 175, 0.26);
+}
+
+.table-cell {
+  vertical-align: top;
+}
+
+.table-cell-center {
+  text-align: center;
+  padding: 8px 10px;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.table-cell-subtext {
+  font-size: 0.7rem;
+  color: #7dd3fc;
+}
+
+/* Logs */
+
+.logs-pre {
+  margin: 0;
+  height: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(2, 6, 23, 0.9);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  color: #e5e7eb;
+
+  overflow-y: auto;
+  overflow-x: hidden;          /* ⬅ prevent horizontal growth */
+  white-space: pre-wrap;       /* ⬅ wrap long log lines */
+  word-break: break-word;      /* ⬅ allow breaking long hex blobs */
+}
+.toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  max-width: 320px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #38bdf8;
+  color: #e0f2fe;
+  font-size: 0.75rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+  z-index: 9999;
+}
+
+/* Scroll boxes */
+
+.scroll-box {
+  margin-top: 4px;
+  border-radius: 12px;
+  border: 1px solid #1e293b;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 6px 8px;
+  font-size: 0.7rem;
+}
+
+.scroll-box.small {
+  max-height: 9999px;
+  overflow: auto;
+}
+
+.scroll-box.center-muted {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+}
+
+/* Command fields */
+
+.field-row {
+  display: grid;
+  grid-template-columns: 4fr 5fr 3fr;
+  gap: 4px;
+  margin-bottom: 4px;
+  align-items: center;
+}
+
+.field-name {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  color: #7dd3fc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.field-value {
+  font-size: 0.7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.field-type {
+  font-size: 0.65rem;
+  text-align: right;
+  color: #94a3b8;
+}
+
+.field-description {
+  grid-column: 1 / 4;
+  font-size: 0.62rem;
+  color: #6b7280;
+}
+
+/* Telemetry fields */
+
+.tlm-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.7);
+  padding: 3px 0;
+}
+
+.tlm-name {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+  color: #7dd3fc;
+  margin-right: 8px;
+}
+
+.tlm-value {
+  flex: 1;
+  text-align: right;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Execution status */
+
+.cmd-name {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.7rem;
+}
+
+.cmd-subtext {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.status-pill {
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+}
+
+.status-ok {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+}
+
+.status-failed {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fecaca;
+}
+
+.status-scheduled {
+  background: rgba(250, 204, 21, 0.15);
+  color: #facc15;
+}
+
+.status-unknown {
+  background: rgba(148, 163, 184, 0.2);
+  color: #e5e7eb;
+}
+
+/* Misc */
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}

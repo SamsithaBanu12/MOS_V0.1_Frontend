@@ -1,0 +1,219 @@
+.conn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.row-lines {
+  /* background-color: #10344eff; */
+  border: 2px solid #10344eff;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #0b202eff;
+}
+
+/* Headings and small toggle button */
+.row-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tiny-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+  color: var(--fg);
+  background: #305869;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tiny-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Status text badges */
+.status-badge {
+  font-size: 12px;
+  font-weight: 500;
+  align-self: center;
+  justify-self: end;
+}
+
+.status-badge.ok {
+  /* color: #d9ffe0;
+  background: rgba(38,255,0,0.15);
+  border-color: rgba(38,255,0,0.35); */
+  color: green;
+}
+
+.status-badge.off {
+  /* color: #ffd5d5;
+  background: rgba(255,56,100,0.15);
+  border-color: rgba(255,56,100,0.35); */
+  color: #ff3864;
+}
+
+/* Compact key/value rows (two columns) */
+.kv-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  min-width: 0;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 40px 100px;
+  gap: 20px;
+  align-items: center;
+  min-width: 0;
+}
+.kv .k {
+  color:white;
+  font-weight: 600;
+  min-width:200px !important;
+}
+
+.k {
+  color: white;
+  font-size: 12px;
+  min-width:250px;
+}
+
+.k+input {
+  background: #305869;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--fg);
+  min-width: 400px;
+}
+.value-seg{
+  background: #305869;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--fg);
+  min-width: 0;
+  font-size: 12px;;
+}
+/* Collapsible block (indented look) */
+.collapsible {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  padding: 8px;
+  min-width: 0;
+}
+
+/* Footer row */
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-primary {
+  background: #305869;
+  color: white;
+  cursor: pointer;
+}
+.btn-primary:active {
+  transform: scale(0.97);        
+  background: #234150;           
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+}
+.btn-primary:focus-visible {
+  outline: 2px solid #66ccff;
+  outline-offset: 2px;
+}
+
+.btn-ghost {
+  color: var(--fg);
+  cursor: pointer;
+}
+.btn-ghost:active {
+  transform: scale(0.97);        
+  background: #234150;           
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+}
+
+/* --- Modal (scoped to ConnectionPanel) --- */
+.conn-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.conn-modal-card {
+  width: min(520px, calc(100vw - 32px));
+  /* max-height: min(80vh, 700px); */
+  background: #0b202eff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+.conn-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.conn-modal-title {
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.conn-modal-body {
+  padding: 14px;
+}
+
+.conn-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.conn-modal-grid h4 {
+  margin: 8px 0 2px;
+  font-size: 12px;
+  letter-spacing: .3px;
+  color: white;
+  text-transform: uppercase;
+}

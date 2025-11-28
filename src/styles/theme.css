@@ -1,0 +1,26 @@
+:root {
+  /* Space theme palette */
+  --bg-deep: #0b1020;        /* deep space */
+  --bg-panel: #121a2e;       /* panels */
+  --bg-panel-2: #0f1630;     /* alt panel */
+  --fg: #e6e7ef;             /* primary text */
+  --fg-muted: #9ea7bd;
+  --accent: #3a86ff;
+  --accent-2: #00d4ff;
+  --danger: #ff3864;
+  --ok: #26ff00;
+  --card-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  --radius: 14px;
+
+  --gap: 12px;
+  --pad: 12px;
+  --font: 'Poppins', sans-serif;
+}
+
+html, body {
+  background: radial-gradient(1200px 800px at 20% -10%, #101a3b 0%, #0b1020 50%, #070b17 100%);
+  color: var(--fg);
+  font-family: var(--font);
+  height: 100vh;           /* fix the viewport height */
+  overflow: hidden;        /* NO SCROLL on main page */
+}

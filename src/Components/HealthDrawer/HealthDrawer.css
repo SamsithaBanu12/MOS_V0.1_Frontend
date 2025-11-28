@@ -1,0 +1,57 @@
+/* Overlay that sits above main content (header/footer remain visible in grid below) */
+.health-drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 9, 20, 0.65);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+}
+
+/* Inner sheet */
+.health-content {
+  width: min(1200px, 92vw);
+  height: min(700px, 82vh);
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 12px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+}
+
+.health-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.health-topbar .title {
+  font-weight: 900;
+  letter-spacing: .3px;
+}
+
+.health-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  min-height: 0;
+}
+
+.health-panel { display: flex; flex-direction: column; min-height: 0; }
+.health-head  { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.health-body  { min-height: 0; }
+
+.msg-list { list-style: none; margin: 0; padding: 0; }
+.msg {
+  padding: 8px 10px;
+  border: 1px solid #10344eff;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background-color: #0b202eff;
+}
+.meta { display: flex; gap: 12px; font-size: 12px; color: var(--fg-muted); margin-bottom: 4px; }
+.payload { white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+
+.switch { display: inline-flex; align-items: center; gap: 6px; }

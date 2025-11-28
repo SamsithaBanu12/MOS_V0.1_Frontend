@@ -1,0 +1,183 @@
+.station-select {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  min-width: 0;
+}
+
+.station-select .label {
+  color: white;
+  font-size: 12px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+
+/* Root of the custom select */
+.custom-select {
+  position: relative;
+  min-width: 0;
+}
+
+/* Button that looks like an input */
+.select-btn {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 16px 1fr auto;
+  align-items: center;
+  gap: 8px;
+
+  background: #305869;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  padding: 10px 12px;
+
+  color: var(--fg);
+  font-weight: 600;
+  letter-spacing: .2px;
+
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.select-btn:hover {
+  border-color: rgba(255,255,255,0.18);
+}
+
+.custom-select.open .select-btn,
+.select-btn:focus {
+  border-color: #0b202eff;
+  box-shadow: 0 0 0 3px #0b202eff;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  justify-self: center;
+  background: rgba(255,255,255,0.28);
+}
+.dot.ok  { background: rgba(38,255,0,0.9); }
+.dot.off { background: rgba(255,255,255,0.28); }
+
+.sel-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.chev {
+  opacity: .8;
+  font-weight: 900;
+  transform: translateY(-1px);
+  color: white;
+}
+
+/* Dropdown menu positioned BELOW the field */
+.menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 50;
+
+  max-height: 220px;
+  overflow: auto;
+
+  background: linear-gradient(180deg, rgba(11,20,36,0.98), rgba(15,27,50,0.98));
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
+  padding: 6px;
+}
+
+/* Items */
+.item {
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: var(--fg);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.item + .item { margin-top: 4px; }
+
+.item:hover,
+.item.active {
+  background: rgba(58,134,255,0.12);
+  border-color: rgba(58,134,255,0.35);
+}
+
+.item.selected {
+  background: rgba(58,134,255,0.20);
+  border-color: rgba(58,134,255,0.45);
+}
+
+.item.disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+.item-name {
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+.item-sub {
+  font-size: 11px;
+  opacity: .7;
+  justify-self: end;
+}
+
+/* Loading shimmer on button (optional) */
+.custom-select.is-loading .select-btn {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.09), rgba(255,255,255,0.05)) 0/200% 100%,
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  animation: shimmer 1.2s infinite linear;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 0, 0 0; }
+  100% { background-position: 200% 0, 0 0; }
+}
+/* Floating menu rendered as a fixed overlay so it won't be clipped by parent overflow */
+.menu-fixed {
+  position: fixed;
+  z-index: 9999;                 /* above panels */
+  max-height: 240px;
+  overflow: auto;
+
+  background: #0b202eff;
+  /* border: 1px solid rgba(255,255,255,0.10); */
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
+  padding: 6px;
+}
+
+/* Reuse item styles from earlier (or keep as-is) */
+.menu-fixed .item { padding: 10px; border-radius: 10px; color: var(--fg); display: grid;
+  grid-template-columns: 1fr auto; gap: 8px; align-items: center; cursor: pointer;
+  border: 1px solid transparent;
+}
+.menu-fixed .item + .item { margin-top: 4px; }
+.menu-fixed .item:hover,
+.menu-fixed .item.active { background: #10344eff; }
+.menu-fixed .item.selected { background: #305869;  }
+.menu-fixed .item.disabled { opacity: .6; cursor: default; }
+.menu-fixed .item-name { font-weight: 700; letter-spacing: .2px; }
+.menu-fixed .item-sub { font-size: 11px; opacity: .7; justify-self: end; }
+.custom-select .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  margin-right: 8px; display: inline-block;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.custom-select .dot.ok  { background: #26ff00; box-shadow: 0 0 0 2px rgba(38,255,0,0.22); }
+.custom-select .dot.off { background: #ff3864; box-shadow: 0 0 0 2px rgba(255,56,100,0.22); }

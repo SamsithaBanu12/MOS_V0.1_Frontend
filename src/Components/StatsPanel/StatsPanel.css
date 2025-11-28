@@ -1,0 +1,154 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: 10px;
+}
+
+/* Title row with Clear button on the right */
+.stats-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stats-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.since {
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--fg);
+}
+
+.btn-ghost {
+  background: #305869;
+}
+
+.sm {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.grid.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+
+.node {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 6px;
+}
+
+.node-title {
+  font-weight: 800;
+  align-self: center;
+}
+
+.node-sub {
+  color: var(--fg-muted);
+  font-size: 12px;
+  grid-column: 1 / -1;
+}
+
+/* Status text badges (shared style, same look as ConnectionPanel) */
+.status-badge {
+  font-size: 12px;
+  font-weight: 500;
+  align-self: center;
+  justify-self: end;
+}
+
+.status-badge.ok {
+  /* color: #d9ffe0;
+  background: rgba(38,255,0,0.15);
+  border-color: rgba(38,255,0,0.35); */
+  color: green;
+}
+
+.status-badge.off {
+  /* color: #ffd5d5;
+  background: rgba(255,56,100,0.15);
+  border-color: rgba(255,56,100,0.35); */
+  color: #ff3864;
+}
+
+.stats-table-wrap {
+  border-radius: 10px;
+  /* border: 1px solid rgba(255, 255, 255, 0.08); */
+}
+
+tr{
+  background-color: #0b202eff;
+  margin-top:10px;
+}
+thead tr{
+  background-color: #305869;
+  color: white;
+}
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.stats-table {
+  width: 100%;
+  border-radius: 10px;
+  border-collapse: separate; 
+  border-spacing: 0 7px;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 10px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stats-table th {
+  text-align: left;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.stats-table .num {
+  text-align: left;
+}
+
+.link-pill {
+  margin-right: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--fg-muted);
+}
+
+.link-pill.active {
+  color: var(--fg);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+tr{
+  margin-top:15px;
+}

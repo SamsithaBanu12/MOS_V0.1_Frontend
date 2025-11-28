@@ -1,0 +1,144 @@
+.app-root {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* 3-row page grid: header / content / footer */
+.app-grid {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    /* header (auto), content (flex), footer (auto) */
+    height: 100%;
+    gap: var(--gap);
+    padding: var(--gap);
+    min-height: 0;
+    /* allow middle to shrink, panels scroll inside */
+}
+
+/* Header / Footer placement + small cosmetics */
+.header,
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer {
+    height: 4vh;
+    margin-top: 10px;
+}
+
+.title {
+    font-weight: 900;
+    letter-spacing: 0.3px;
+}
+
+.ws-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Content grid: left rail fixed, right rail fluid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 440px minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    gap: 15px;
+    min-height: 0;
+    /* allow internal scroll */
+    max-height: 90vh !important;
+    min-height: 90vh;
+}
+
+/* Ensure grid children can actually shrink within their tracks */
+.content-grid>* {
+    min-width: 0;
+    min-height: 0;
+}
+
+.left-rail,
+.right-rail {
+    min-width: 0;
+    min-height: 0;
+}
+
+/* Left rail stacks Station, Connection, Stats */
+.left-rail {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    /* make Stats stretch */
+    grid-template-columns: auto;
+    gap: 20px;
+    /* increase this number for more space between Connection & Stats */
+    min-height: 0;
+}
+
+/* Right rail: 2x2 topic panels */
+.right-rail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: var(--gap);
+    min-height: 0;
+}
+
+.right-rail>.panel {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Panels must not force wider than their cell */
+.panel {
+    border: 2px solid #10344eff;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--pad);
+    min-height: 0;
+    max-width: 100%;
+    overflow: hidden;
+    background-color: #10344dff;
+    /* avoid visual bleed */
+}
+
+.panel-title-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-title {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--fg);
+    margin-bottom: 8px;
+}
+
+/* internal scroll only */
+.scroll {
+    overflow: auto;
+    height: 100%;
+    border-radius: calc(var(--radius) - 6px);
+}
+
+/* Status chip */
+.status-badge {
+  font-size: 12px;
+  font-weight: 500;
+  align-self: center;
+  justify-self: end;
+}
+
+.status-badge.ok {
+    /* color: #d9ffe0;
+    background: rgba(38, 255, 0, 0.15);
+    border-color: rgba(38, 255, 0, 0.35); */
+    color: green;
+}
+
+.status-badge.off {
+  color: #ff3864;
+}

@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--fg-muted);
+  font-size: 13px;
+}
+
+.ws-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.led {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+.led-ok  { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+.led-off { background: #6b7280; box-shadow: none; }
