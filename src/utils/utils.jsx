@@ -548,3 +548,42 @@ export function displayValue(hex, isHex) {
 
   return "—";
 }
+
+export function toUTCYmdHmsnn(input) {
+  let d;
+
+  if (input instanceof Date) {
+    d = input;
+  } 
+  else if (typeof input === "number") {
+    // Detect nanoseconds, microseconds, milliseconds, seconds
+    let ns = input;
+
+    if (ns > 1e15) {
+      // nanos → ms
+      ns = ns / 1e6;
+    } else if (ns > 1e12) {
+      // micros → ms
+      ns = ns / 1e3;
+    } else if (ns < 1e12 && ns > 1e10) {
+      // seconds? (10-digit seconds)
+      ns = ns * 1000;
+    }
+
+    d = new Date(ns);
+  } 
+  else {
+    d = new Date(input);
+  }
+
+  const pad = (n) => String(n).padStart(2, "0");
+
+  const Y = d.getUTCFullYear();
+  const M = pad(d.getUTCMonth() + 1);
+  const D = pad(d.getUTCDate());
+  const h = pad(d.getUTCHours());
+  const m = pad(d.getUTCMinutes());
+  const s = pad(d.getUTCSeconds());
+
+  return `${Y}-${M}-${D} ${h}:${m}:${s}`;
+}

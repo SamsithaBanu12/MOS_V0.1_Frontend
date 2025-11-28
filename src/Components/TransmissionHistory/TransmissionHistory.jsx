@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./TransmissionHistory.space.css";
 import { IoClose } from "react-icons/io5";
+import { toUTCYmdHms, toUTCYmdHmsnn } from "../../utils/utils";
 
 const CMD_BASE = "http://127.0.0.1:8009";
 const TLM_BASE = "http://127.0.0.1:8010";
@@ -186,8 +187,8 @@ export default function TransmissionHistory({ transmissionData}) {
                     <tr key={i} onClick={() => handleRowClick(r)}>
                       <td className="th-mono">{r?.__type}</td>
                       <td className="th-mono">{r.__packet || "—"}</td>
-                      <td><TimeCell iso={r?.__time} useLocal={useLocalTime} /></td>   
-                      <button>view</button>                   
+                    <td>{toUTCYmdHmsnn(r?.__time)}</td>
+                      <td><button className="view-btn">view</button></td>                                   
                       {/* <td><ChipListKV obj={r.params || {}} /></td> */}
                       {/* <td className="th-mono">{r.topic || "—"}</td>
                     <td className="th-mono th-ellipsis">{r.hex_stream || "—"}</td>
@@ -211,13 +212,13 @@ export default function TransmissionHistory({ transmissionData}) {
             </thead>
             <tbody>
               {filteredTlms.length === 0 ? (
-                <tr><td colSpan={7} className="th-muted">{loading ? "Loading…" : "No telemetry."}</td></tr>
+                <tr><td colSpan={7} className="th-muted"></td></tr>
               ) : (
                 filteredTlms.map((r, i) => (
                     <tr key={i} onClick={() => handleRowClick(r)}>
                     <td className="th-mono">{r.__type || "—"}</td>
                     <td className="th-mono">{r.__packet || "—"}</td>
-                    <td><TimeCell iso={r.__time} useLocal={useLocalTime} /></td>
+                    <td>{toUTCYmdHmsnn(r?.__time)}</td>
                     <td><button className="view-btn">view</button></td>                 
                     {/* <td><ChipListKV obj={r.routing || {}} /></td> */}
                     {/* <td className="th-mono">{r.topic || "—"}</td> */}
