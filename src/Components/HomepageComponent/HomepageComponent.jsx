@@ -1,6 +1,6 @@
 // src/components/HomePage.jsx
 import React from 'react';
-import './HomePageComponent.css';
+import './HomepageComponent.css';
 import logo from '../../assets/glx.jpeg';
 
 const HomepageComponent = () => {

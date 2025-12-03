@@ -5,13 +5,13 @@ import { getStatus, connectBridge, disconnectBridge } from '../utils/api/api'
 
 import Header from '../Components/Header/Header'
 import StationSelector from '../Components/StationSelector/StationSelector'
-import ConnectionPanel from '../components/ConnectionPanel/ConnectionPanel'
-import StatsPanel from '../components/StatsPanel/StatsPanel'
-import TopicPanel from '../components/TopicPanel/TopicPanel'
-import Footer from '../components/Footer/Footer'
+import ConnectionPanel from '../Components/ConnectionPanel/ConnectionPanel'
+import StatsPanel from '../Components/StatsPanel/StatsPanel'
+import TopicPanel from '../Components/TopicPanel/TopicPanel'
+import Footer from '../Components/Footer/Footer'
 
 // Health overlay
-import HealthDrawer from '../components/HealthDrawer/HealthDrawer'
+import HealthDrawer from '../Components/HealthDrawer/HealthDrawer'
 import { useGettingConnectionStatus } from '../utils/hooks'
 
 function ConnectionPage() {

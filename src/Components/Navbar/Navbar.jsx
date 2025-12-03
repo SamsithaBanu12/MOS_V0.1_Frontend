@@ -46,13 +46,14 @@ const Navbar = ({ onBarClicked }) => {
             </NavLink>
 
             <NavLink
-              to="/schedule-upload"
-              className={({ isActive }) =>
-                `group-btn${isActive ? " group-btn--active" : ""}`
-              }
-            >
-              Schedule Upload
-            </NavLink>
+  to="/schedule-upload"
+  className={({ isActive }) =>
+    `group-btn${isActive ? " group-btn--active" : ""}`
+  }
+>
+  Upload
+</NavLink>
+
             <NavLink
               to="/transmission-history"
               className={({ isActive }) =>

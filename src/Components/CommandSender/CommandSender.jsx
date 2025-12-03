@@ -343,6 +343,7 @@ useEffect(() => {
                       </select>
                     </div>
                   </div>
+                  {console.log('vlaue ', selectedIdx)}
 
                   {/* 🔹 Command with inline search using react-select */}
                   <div className="ce-flex">

@@ -724,7 +724,7 @@ const showToast = (title, msg, type = "success") => {
                 </div>
               </div>
               <button
-                className="su-btn su-btn-ghost"
+                className="su-btn su-btn-ghost su-close"
                 type="button"
                 onClick={closeTelemetryModal}
               >

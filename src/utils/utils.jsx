@@ -587,3 +587,59 @@ export function toUTCYmdHmsnn(input) {
 
   return `${Y}-${M}-${D} ${h}:${m}:${s}`;
 }
+
+export const getAllTlmsData = (transmissionData) => {
+  return transmissionData.filter(
+    (item) => item?.__packet?.toLowerCase().includes("__tlm__")
+  );
+};
+
+export const getAllCmdsData = (transmissionData) => {
+  return transmissionData.filter(
+    (item) => item?.__packet?.toLowerCase().includes("__cmd__")
+  );
+};
+
+export function base64ToHex(base64) {
+  const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+
+  return Array.from(bytes, b => b.toString(16).padStart(2, "0")).join("");
+}
+
+export const findHealthCommand=(value)=>{
+  if(value.includes("__CMD__")){
+    return "Cmd";
+  }else if(value.includes("TLM")){
+    if(value.includes("__HEALTH")){
+      return "Health";
+    }else{
+      return "Tlm";
+    }
+  }
+}
+export const getCommandName = (value) => {
+  if (value?.includes("__EMULATOR__")) {
+    return value.split("__EMULATOR__")[1]; 
+  }
+  return value; 
+};
+export function rawToHex(raw) {
+  if (!Array.isArray(raw)) return "";
+  const hex = raw
+    .map(n => n.toString(16).padStart(2, "0"))
+    .join("");
+  return "0x" + hex.toUpperCase(); 
+}
+
+export const getTcTmId = (value) => {
+  if (typeof value === "string" || typeof value === "number") {
+    return value;
+  }
+
+  if (value && typeof value === "object" && Array.isArray(value.raw)) {
+    return rawToHex(value.raw);
+  }
+
+  return "";
+};
+

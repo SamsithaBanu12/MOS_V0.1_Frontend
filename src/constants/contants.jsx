@@ -176,7 +176,7 @@ export const OC3 = {
 };
 
 export const Parameters = [
-  "CSPHEADER", "SOF1", "SOF2", "TC_CTRL", "SEQ_NO", "SAT_ID", "GND_ID", "QOS", "SA_ID", "DA_ID", "TC_LEN"
+  "CSPHEADER", "SOF1", "SOF2", "TC_CTRL", "SEQ_NO", "SAT_ID", "QOS", "SA_ID", "DA_ID", "TC_LEN", "extra", "__type", "__packet", "__time", "buffer", "CMAC/HMAC"
 ]
 
 export const passPlanData = [

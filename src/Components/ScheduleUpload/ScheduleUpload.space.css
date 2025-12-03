@@ -610,6 +610,10 @@ thead tr{
 .su-btn-view {
   padding:4px 10px;
   font-size:12px;
+  background-color: #30586b !important;
+}
+.su-close{
+  background-color: transparent;
 }
 
 /* Modal */

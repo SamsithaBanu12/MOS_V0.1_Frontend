@@ -40,8 +40,8 @@ export const commandTelemetryDrishti = [
 export const commandTelemetryEmulator = [
     {
         id: 1,
-        command: '1021_TC_EXOTRAIL_GET_SYS_INFO',
-        telemetry: '1021_TM_EXOTRAIL_GET_SYS_INFO',
+        command: 'THRUSTER_1021_TC_EXOTRAIL_GET_SYS_INFO',
+        telemetry: 'THRUSTER_1021_TM_EXOTRAIL_GET_SYS_INFO',
         target: 'EMULATOR',
         parameters: ['SOFTWARE_VERSION', 'EXOTRIAL_OBC_CURRENT_MODE', 'ID_SAFE', 'COMMISSIONING_RESULT']
     },
@@ -84,8 +84,8 @@ export const commandTelemetryEmulator = [
     },
     {
         id: 6,
-        command: '581_OBC_TC_GET_CURRENT_TIME',
-        telemetry: 'TM_GET_CURRENT_TIME',
+        command: 'OBC_581_TC_GET_CUR_TIME',
+        telemetry: 'OBC_581_TM_GET_CUR_TIME',
         target: 'EMULATOR',
         parameters: ['YEAR', 'MONTH', 'DATE', 'HOURS', 'MINUTE', 'MILLISECONDS']
     },
@@ -546,6 +546,20 @@ export const commandTelemetryEmulator = [
         telemetry: 'TM_PLD_VM_PWR_OFF',
         target: 'EMULATOR',
         parameters: ['VALUE', 'BOOL']
+    },
+     {
+        id: 54,
+        command: 'OBC_500_TC_GET_PROC_UTIL_INFO',
+        telemetry: 'OBC_500_TM_GET_PROC_UTIL_INFO',
+        target: 'EMULATOR',
+        parameters: [ 'CPU_USAGE']
+    },
+      {
+        id: 54,
+        command: 'OBC_550_TC_SET_CUR_TIME',
+        telemetry: 'OBC_550_TM_SET_CUR_TIME',
+        target: 'EMULATOR',
+        parameters: [ '']
     },
 ]
 
